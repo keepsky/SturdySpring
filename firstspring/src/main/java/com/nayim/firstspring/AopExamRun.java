@@ -7,6 +7,7 @@ import com.nayim.firstspring.service.TodoService;
 
 public class AopExamRun {
 
+	// test
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ApplicationContext ac = new ClassPathXmlApplicationContext("config/applicationContext.xml");
