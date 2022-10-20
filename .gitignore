@@ -54,3 +54,4 @@ todomvc/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
 todomvc/target/m2e-wtp/web-resources/META-INF/maven/com.exam/todomvc/pom.properties
 todomvc/target/m2e-wtp/web-resources/META-INF/maven/com.exam/todomvc/pom.xml
 todomvc/target/test-classes/log4j.xml
+/.metadata/

@@ -1,0 +1,62 @@
+package com.exam.todojpa.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.exam.todojpa.domain.Todo;
+import com.exam.todojpa.service.TodoService;
+
+@Controller
+public class TodoController {
+	@Autowired
+	private TodoService todoService;
+	
+	@PostMapping("/addToDo")
+	public String addTodo(@RequestParam("todo")String todo) {
+		todoService.addTodo(todo);
+		
+		return "redirect:./list";
+	}
+	
+	@GetMapping("/list")
+	public String getTodos(Model model) {
+		//?ÑúÎπÑÏä§?óê?Ñú ?ñª?ñ¥?ò® ?†ïÎ≥¥Î?? Î™®Îç∏?óê ?Ñ£?ñ¥Ï§??ã§. 
+		List<Todo> todos = todoService.getTodos();
+		model.addAttribute("todos", todos);
+		return "list";	
+		
+	}
+	
+	@GetMapping("/updateTodo")
+	public String updateForm(@RequestParam("id") Long id,Model model) {
+		Todo todo = todoService.getToto(id);
+		model.addAttribute("todo", todo);
+		return "updateTodo";
+	}
+	@PostMapping("/updateTodo")
+	public String updateTodo(@ModelAttribute Todo todo) {
+		System.out.println(todo.getTodo());
+		
+		todoService.changeTodo(todo.getId(), todo.getTodo());	
+		return "redirect:./list";
+	}
+	
+	 @GetMapping("/updateDone")
+	    public String updateDone(@RequestParam("id") Long id){
+	    	todoService.updateTodo(id);
+	        return "redirect:./list"; // ?ûê?èô ?ù¥?èô.
+	    }
+	    
+	    @GetMapping("/deleteTodo")
+	    public String deleteTodo(@RequestParam("id") Long id){
+	    	todoService.removeTodo(id);
+	        return "redirect:./list"; // ?ûê?èô ?ù¥?èô.
+	    }
+}
