@@ -11,7 +11,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	protected Class<?>[] getRootConfigClasses() {
 		// TODO Auto-generated method stub
 		// root-context.xml
-		return new Class<?>[] {ApplicationConfig.class};
+		return new Class<?>[] {ApplicationConfig.class, SecurityConfig.class};
 	}
 
 	@Override

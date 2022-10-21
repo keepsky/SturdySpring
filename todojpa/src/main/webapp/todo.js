@@ -14,7 +14,9 @@ function getTodos(){
                for(let i = 0; i < todos.length; i++){
                    todoItemAdd(todos[i]);
                }
-            }
+            }else{
+				window.location.href = '/todojpa/';
+			}
         }
    }
    xhr.send();          

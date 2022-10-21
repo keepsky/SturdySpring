@@ -11,11 +11,12 @@ import com.exam.todojpa.domain.Todo;
 
 public interface TodoRepository extends JpaRepository<Todo, Long> {
 
-	// ¼±¾ğ¸¸ ÇØµÎ¸é µ¿ÀÛ find(table name)By(column name) 
+	// ì„ ì–¸ë§Œ í•´ë‘ë©´ ë™ì‘ find(table name)By(column name) 
 	List<Todo> findByTodo(String todo);
 
 	List<Todo> findByTodoStartingWith(String todo);
 
+	// jpql sample 
 	@Query("select t from Todo t where t.todo like %:todo%")
 	List<Todo> findTodos(@Param("todo") String todo);
 }
