@@ -18,8 +18,8 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	protected Class<?>[] getServletConfigClasses() {
 		// TODO Auto-generated method stub
 		// servlet-context.xml
-		//return new Class<?>[] {MvcConfig.class, SwaggerConfig.class};
-		return new Class<?>[] {MvcConfig.class};
+		return new Class<?>[] {MvcConfig.class, SwaggerConfig.class};
+		//return new Class<?>[] {MvcConfig.class};
 	}
 
 	@Override

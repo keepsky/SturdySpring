@@ -17,6 +17,8 @@ function getTodos(){
             }else{
 				window.location.href = '/todojpa/';
 			}
+        } else {
+				window.location.href = '/todojpa/';
         }
    }
    xhr.send();          
